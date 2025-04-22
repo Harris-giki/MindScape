@@ -115,7 +115,7 @@ const ChatbotPage: React.FC = () => {
     setMessages(prev => [...prev, userMsg, loadingMsg]);
     setInput(''); setLoading(true);
 
-    const apiKey = 'AIzaSyA1hddmhEKCcKr_WdWR2B8YJJHGg5XFQUQ';
+    const apiKey = 'YOUR_API_KEY';
     const convo = messages
       .filter(m => m.sender !== 'system' && !m.id.startsWith('bot-loading'))
       .map(m => ({ role: m.sender === 'user' ? 'user' : 'model', parts: [{ text: m.text }] }));

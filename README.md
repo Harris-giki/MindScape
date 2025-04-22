@@ -1,9 +1,10 @@
 # Welcome to HamQadam
 
 
-
 ## Project info
-
+A mini frontend hackathon winning project, theme: Tech for social betterment, team : CUDA FORCE
+in order to use the chatbots, just replace the "YOUR_API_KEY" with your own key, also there are pre-prompts given to these bots which you can change according to your need and taste
+~CUDA FORCE
 
 **About this Project:**
 
