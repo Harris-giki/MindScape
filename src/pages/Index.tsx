@@ -180,6 +180,11 @@ const Index = () => {
                   >
                     <Link to="/communities">Explore Communities</Link>
                   </Button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Button
                     size="lg"
                     className="bg-blue-600 hover:bg-blue-600/90 text-white ml-3"

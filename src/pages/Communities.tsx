@@ -141,7 +141,7 @@ const Communities = () => {
 
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="bg-primary">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                   <Plus size={16} className="mr-2" />
                   Create MoodBoard
                 </Button>
@@ -163,7 +163,7 @@ const Communities = () => {
                     </label>
                     <Input
                       id="community-name"
-                      placeholder="Enter community name"
+                      placeholder="Enter MoodBoard name"
                       value={newCommunity.name}
                       onChange={(e) =>
                         setNewCommunity({
@@ -183,7 +183,7 @@ const Communities = () => {
                     </label>
                     <Input
                       id="community-area"
-                      placeholder="Enter area or district"
+                      placeholder="Enter Faculty or Year"
                       value={newCommunity.area}
                       onChange={(e) =>
                         setNewCommunity({
@@ -203,7 +203,7 @@ const Communities = () => {
                     </label>
                     <Textarea
                       id="community-description"
-                      placeholder="Describe your community"
+                      placeholder="Describe your MoodBoard"
                       value={newCommunity.description}
                       onChange={(e) =>
                         setNewCommunity({
@@ -241,7 +241,12 @@ const Communities = () => {
                   <DialogClose asChild>
                     {/* The DialogClose asChild on the Create button will close the dialog */}
                     {/* handleCreateCommunity will be called when this button is clicked */}
-                    <Button onClick={handleCreateCommunity}>Create</Button>
+                    <Button
+                      onClick={handleCreateCommunity}
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                    >
+                      Create
+                    </Button>
                   </DialogClose>
                 </DialogFooter>
               </DialogContent>
@@ -250,11 +255,17 @@ const Communities = () => {
 
           {/* Communities Tabs */}
           <Tabs defaultValue="my-communities" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              <TabsTrigger value="my-communities">
+            <TabsList className="grid w-full grid-cols-2 mb-8 bg-blue-50">
+              <TabsTrigger
+                value="my-communities"
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+              >
                 My MoodBoards ({joinedCommunities.length})
               </TabsTrigger>
-              <TabsTrigger value="discover">
+              <TabsTrigger
+                value="discover"
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+              >
                 Discover ({discoverCommunities.length})
               </TabsTrigger>
             </TabsList>
@@ -262,7 +273,7 @@ const Communities = () => {
             {/* My Communities Tab */}
             <TabsContent value="my-communities">
               {joinedCommunities.length === 0 ? (
-                <div className="text-center py-12 bg-muted/30 rounded-lg">
+                <div className="text-center py-12 bg-blue-50 rounded-lg">
                   <h3 className="text-xl font-medium mb-2">
                     No MoodBoards joined yet
                   </h3>
@@ -271,6 +282,7 @@ const Communities = () => {
                   </p>
                   <Button
                     variant="outline"
+                    className="border-blue-400 hover:bg-blue-100 text-blue-700"
                     onClick={() => {
                       // Programmatically switch to the "Discover" tab
                       const discoverTab = document.querySelector(
@@ -287,7 +299,7 @@ const Communities = () => {
                   {joinedCommunities.map((community) => (
                     <Card
                       key={community.id}
-                      className="overflow-hidden transition-all hover:shadow-md group"
+                      className="overflow-hidden transition-all hover:shadow-md group border-blue-100"
                     >
                       <div className="h-32 bg-muted flex items-center justify-center relative overflow-hidden">
                         <img
@@ -318,7 +330,7 @@ const Communities = () => {
                           </CardTitle>
                           <Badge
                             variant="outline"
-                            className="bg-primary/10 text-primary"
+                            className="bg-blue-100 text-blue-700 border-blue-200"
                           >
                             Joined
                           </Badge>
@@ -340,7 +352,10 @@ const Communities = () => {
                         </p>
                       </CardContent>
                       <CardFooter className="flex gap-2">
-                        <Button asChild className="flex-1" variant="default">
+                        <Button
+                          asChild
+                          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                        >
                           <Link
                             to={`/communities/${community.id}`}
                             className="flex items-center justify-center"
@@ -352,7 +367,7 @@ const Communities = () => {
                           <AlertDialogTrigger asChild>
                             <Button
                               variant="outline"
-                              className="px-3"
+                              className="px-3 border-blue-300 text-blue-700 hover:bg-blue-50"
                               onClick={() => setCommunityToLeave(community.id)} // Set community to leave when dialog opens
                             >
                               Leave
@@ -373,11 +388,15 @@ const Communities = () => {
                             <AlertDialogFooter>
                               <AlertDialogCancel
                                 onClick={() => setCommunityToLeave(null)}
+                                className="border-blue-200 hover:bg-blue-50"
                               >
                                 Cancel
                               </AlertDialogCancel>{" "}
                               {/* Reset state on cancel */}
-                              <AlertDialogAction onClick={handleLeaveCommunity}>
+                              <AlertDialogAction
+                                onClick={handleLeaveCommunity}
+                                className="bg-blue-600 hover:bg-blue-700 text-white"
+                              >
                                 Leave MoodBoard
                               </AlertDialogAction>{" "}
                               {/* Handle leave on confirm */}
@@ -397,7 +416,7 @@ const Communities = () => {
                 {discoverCommunities.map((community) => (
                   <Card
                     key={community.id}
-                    className="overflow-hidden transition-all hover:shadow-md group"
+                    className="overflow-hidden transition-all hover:shadow-md group border-blue-100"
                   >
                     <div className="h-32 bg-muted flex items-center justify-center relative overflow-hidden">
                       <img
@@ -443,14 +462,14 @@ const Communities = () => {
                     </CardContent>
                     <CardFooter className="flex gap-2">
                       <Button
-                        className="flex-1"
+                        className="flex-1 border-blue-300 text-blue-700 hover:bg-blue-50"
                         variant="outline"
                         onClick={() => navigate(`/communities/${community.id}`)}
                       >
                         View Details
                       </Button>
                       <Button
-                        className="flex-1"
+                        className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
                         onClick={() => handleJoinCommunity(community.id)}
                       >
                         Join
