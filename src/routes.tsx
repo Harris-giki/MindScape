@@ -18,12 +18,9 @@ const Index = lazy(() => import("./pages/Index"));
 const Communities = lazy(() => import("./pages/Communities"));
 const CommunityDetail = lazy(() => import("./pages/CommunityDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Stories = lazy(() => import("./pages/Stories"));
 const Login = lazy(() => import("./pages/auth/Login"));
 const Signup = lazy(() => import("./pages/auth/Signup"));
-const Profile = lazy(() => import("./pages/Profile"));
 const MentalGPT = lazy(() => import("./pages/MentalGPT"));
-const AboutUs = lazy(() => import("./pages/about"));
 
 export const routes: RouteObject[] = [
   // Auth pages
@@ -57,14 +54,6 @@ export const routes: RouteObject[] = [
       </SuspenseWrapper>
     ),
   },
-  {
-    path: "/about",
-    element: (
-      <SuspenseWrapper>
-        <AboutUs />
-      </SuspenseWrapper>
-    ),
-  },
 
   {
     path: "/communities",
@@ -83,22 +72,6 @@ export const routes: RouteObject[] = [
     ),
   },
 
-  {
-    path: "/stories",
-    element: (
-      <SuspenseWrapper>
-        <Stories />
-      </SuspenseWrapper>
-    ),
-  },
-  {
-    path: "/profile",
-    element: (
-      <SuspenseWrapper>
-        <Profile />
-      </SuspenseWrapper>
-    ),
-  },
   {
     path: "/MentalGPT",
     element: (

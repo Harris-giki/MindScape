@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import SectionHeading from "@/components/ui/section-heading";
-import ResourceCard from "@/components/ui/card-resource";
 import { Button } from "@/components/ui/button";
-import { Shield, Heart, Briefcase, Users, Bell } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { useCommunityStore } from "@/stores/communityStore";
+import { motion } from "framer-motion";
 
 const diagonalStripes = {
   backgroundImage: `repeating-linear-gradient(
@@ -20,42 +17,7 @@ const diagonalStripes = {
 };
 
 const Index = () => {
-  const { announcements = {} } = useCommunityStore();
-  const [recentAnnouncements, setRecentAnnouncements] = useState([]);
   const [hasError, setHasError] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
-
-  useEffect(() => {
-    try {
-      if (!announcements || typeof announcements !== "object") {
-        setRecentAnnouncements([]);
-        return;
-      }
-
-      const allAnnouncements = Object.values(announcements).flat();
-
-      const sortedAnnouncements = allAnnouncements.sort((a, b) => {
-        try {
-          const dateA = a.date || "1970-01-01";
-          const timeA = a.time || "00:00";
-          const dateB = b.date || "1970-01-01";
-          const timeB = b.time || "00:00";
-
-          const dateTimeA = new Date(`${dateA} ${timeA}`);
-          const dateTimeB = new Date(`${dateB} ${timeB}`);
-
-          return dateTimeB.getTime() - dateTimeA.getTime();
-        } catch (e) {
-          return 0;
-        }
-      });
-
-      setRecentAnnouncements(sortedAnnouncements.slice(0, 5));
-    } catch (error) {
-      console.error("Error processing announcements:", error);
-      setRecentAnnouncements([]);
-    }
-  }, [announcements]);
 
   if (hasError) {
     return (
@@ -84,23 +46,6 @@ const Index = () => {
       </motion.div>
     );
   }
-
-  const cardVariants = {
-    hover: {
-      y: -10,
-      boxShadow:
-        "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-      transition: {
-        duration: 0.3,
-        ease: "easeOut",
-      },
-    },
-    initial: {
-      y: 0,
-      boxShadow:
-        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-    },
-  };
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -318,6 +263,38 @@ const Index = () => {
                 <p className="text-gray-600">{item.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Announcements Section - Simplified with static content */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="py-16 bg-white"
+      >
+        <div className="container mx-auto px-4">
+          <SectionHeading title="Latest Updates" alignment="center" />
+
+          <div className="bg-blue-50 p-6 rounded-lg shadow-sm mb-8 text-center">
+            <p className="text-gray-700">
+              Stay connected with your community through our announcements page.
+              Check back regularly for important updates and news.
+            </p>
+            <motion.div
+              className="mt-4"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                className="bg-blue-600 hover:bg-blue-600/90 text-white"
+                asChild
+              >
+                <Link to="/announcements">View All Announcements</Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </motion.section>
