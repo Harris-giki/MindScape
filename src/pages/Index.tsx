@@ -37,7 +37,7 @@ const Index = () => {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               onClick={() => window.location.reload()}
-              className="bg-blue-600 hover:bg-blue-600/90 text-white"
+              className="bg-blue-800 hover:bg-blue-600/90 text-white"
             >
               Refresh Page
             </Button>
