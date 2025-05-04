@@ -20,6 +20,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/auth/Login"));
 const Signup = lazy(() => import("./pages/auth/Signup"));
 const MentalGPT = lazy(() => import("./pages/MentalGPT"));
+const MoodBoard = lazy(() => import("./pages/MoodBoard"));
 
 export const routes: RouteObject[] = [
   // Auth pages
@@ -71,7 +72,14 @@ export const routes: RouteObject[] = [
       </SuspenseWrapper>
     ),
   },
-
+  {
+    path: "/MoodBoard",
+    element: (
+      <SuspenseWrapper>
+        <MoodBoard />
+      </SuspenseWrapper>
+    ),
+  },
   // 404
   {
     path: "*",
