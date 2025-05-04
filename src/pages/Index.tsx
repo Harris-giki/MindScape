@@ -180,6 +180,13 @@ const Index = () => {
                   >
                     <Link to="/communities">Explore Communities</Link>
                   </Button>
+                  <Button
+                    size="lg"
+                    className="bg-blue-600 hover:bg-blue-600/90 text-white ml-3"
+                    asChild
+                  >
+                    <Link to="/MentalGPT">AI Assistance</Link>
+                  </Button>
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.05 }}

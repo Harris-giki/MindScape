@@ -16,22 +16,14 @@ const SuspenseWrapper = ({ children }: SuspenseWrapperProps) => (
 // Lazy-loaded pages
 const Index = lazy(() => import("./pages/Index"));
 const Communities = lazy(() => import("./pages/Communities"));
-const Safety = lazy(() => import("./pages/Safety"));
-const Health = lazy(() => import("./pages/Health"));
-const Rights = lazy(() => import("./pages/Rights"));
 const CommunityDetail = lazy(() => import("./pages/CommunityDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Family = lazy(() => import("./pages/Family"));
 const Stories = lazy(() => import("./pages/Stories"));
 const Login = lazy(() => import("./pages/auth/Login"));
 const Signup = lazy(() => import("./pages/auth/Signup"));
-const LostFound = lazy(() => import("./pages/LostFound"));
-const ChatbotPage = lazy(() => import("./pages/ChatbotPage"));
 const Profile = lazy(() => import("./pages/Profile"));
-const BaitulMaal = lazy(() => import("./pages/BaitulMaal"));
 const MentalGPT = lazy(() => import("./pages/MentalGPT"));
 const AboutUs = lazy(() => import("./pages/about"));
-const Muhafiz = lazy(() => import("./pages/Muhafiz"));
 
 export const routes: RouteObject[] = [
   // Auth pages
@@ -66,30 +58,6 @@ export const routes: RouteObject[] = [
     ),
   },
   {
-    path: "/ChatbotPage",
-    element: (
-      <SuspenseWrapper>
-        <ChatbotPage />
-      </SuspenseWrapper>
-    ),
-  },
-  {
-    path: "/Muhafiz",
-    element: (
-      <SuspenseWrapper>
-        <Muhafiz />
-      </SuspenseWrapper>
-    ),
-  },
-  {
-    path: "/BaitulMaal",
-    element: (
-      <SuspenseWrapper>
-        <BaitulMaal />
-      </SuspenseWrapper>
-    ),
-  },
-  {
     path: "/about",
     element: (
       <SuspenseWrapper>
@@ -97,14 +65,7 @@ export const routes: RouteObject[] = [
       </SuspenseWrapper>
     ),
   },
-  {
-    path: "/LostFound",
-    element: (
-      <SuspenseWrapper>
-        <LostFound />
-      </SuspenseWrapper>
-    ),
-  },
+
   {
     path: "/communities",
     element: (
@@ -121,38 +82,7 @@ export const routes: RouteObject[] = [
       </SuspenseWrapper>
     ),
   },
-  {
-    path: "/health",
-    element: (
-      <SuspenseWrapper>
-        <Health />
-      </SuspenseWrapper>
-    ),
-  },
-  {
-    path: "/rights",
-    element: (
-      <SuspenseWrapper>
-        <Rights />
-      </SuspenseWrapper>
-    ),
-  },
-  {
-    path: "/family",
-    element: (
-      <SuspenseWrapper>
-        <Family />
-      </SuspenseWrapper>
-    ),
-  },
-  {
-    path: "/safety",
-    element: (
-      <SuspenseWrapper>
-        <Safety />
-      </SuspenseWrapper>
-    ),
-  },
+
   {
     path: "/stories",
     element: (
