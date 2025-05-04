@@ -5,7 +5,7 @@ import { AuthProvider } from "./auth/AuthContext";
 
 function App() {
   const router = createBrowserRouter(routes);
-  
+
   return (
     <AuthProvider>
       <RouterProvider router={router} />
