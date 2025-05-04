@@ -266,38 +266,6 @@ const Index = () => {
           </div>
         </div>
       </motion.section>
-
-      {/* Announcements Section - Simplified with static content */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="py-16 bg-white"
-      >
-        <div className="container mx-auto px-4">
-          <SectionHeading title="Latest Updates" alignment="center" />
-
-          <div className="bg-blue-50 p-6 rounded-lg shadow-sm mb-8 text-center">
-            <p className="text-gray-700">
-              Stay connected with your community through our announcements page.
-              Check back regularly for important updates and news.
-            </p>
-            <motion.div
-              className="mt-4"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                className="bg-blue-600 hover:bg-blue-600/90 text-white"
-                asChild
-              >
-                <Link to="/announcements">View All Announcements</Link>
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
     </MainLayout>
   );
 };

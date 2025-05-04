@@ -16,7 +16,6 @@ const SuspenseWrapper = ({ children }: SuspenseWrapperProps) => (
 // Lazy-loaded pages
 const Index = lazy(() => import("./pages/Index"));
 const Communities = lazy(() => import("./pages/Communities"));
-const CommunityDetail = lazy(() => import("./pages/CommunityDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/auth/Login"));
 const Signup = lazy(() => import("./pages/auth/Signup"));
@@ -60,14 +59,6 @@ export const routes: RouteObject[] = [
     element: (
       <SuspenseWrapper>
         <Communities />
-      </SuspenseWrapper>
-    ),
-  },
-  {
-    path: "/communities/:id",
-    element: (
-      <SuspenseWrapper>
-        <CommunityDetail />
       </SuspenseWrapper>
     ),
   },
